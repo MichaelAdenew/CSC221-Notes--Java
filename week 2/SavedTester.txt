@@ -1,0 +1,58 @@
+MySavedTester
+
+/*
+    Homework 1 CSC 221 Fall 2020
+    @author Sakib Miazi... 
+*/
+public class TesterClass extends MyIntArrayList{
+    public static void main(String a[]){
+        // Creating an object of my custom integer arraylist.....
+        MyIntArrayList myIntArrayList = new MyIntArrayList();
+
+        // Adding integers to my list...
+        myIntArrayList.add(2);
+        myIntArrayList.add(5);
+        myIntArrayList.add(6);
+        myIntArrayList.add(7);
+        myIntArrayList.add(8);
+        myIntArrayList.add(9);
+        myIntArrayList.add(10);
+        myIntArrayList.add(14);
+        myIntArrayList.add(0);
+        
+        // Printing the current elements in the list...
+        for(int i = 0; i < myIntArrayList.size(); i++){
+            System.out.print(myIntArrayList.get(i) + " ");
+        }
+        System.out.println();
+
+        // replacing the 3rd element by 33 using set()...
+        myIntArrayList.set(2, 33);
+
+        // removing the second element...
+        myIntArrayList.remove(1);
+
+        // printing the arraylist again...
+        for(int i = 0; i < myIntArrayList.size(); i++){
+            System.out.print(myIntArrayList.get(i) + " ");
+        }
+        System.out.println();
+        myIntArrayList.remove(7);
+
+        // printing the arraylist again...
+        for(int i = 0; i < myIntArrayList.size(); i++){
+            System.out.print(myIntArrayList.get(i) + " ");
+        }
+        System.out.println();
+
+        // Can I replace the 11th element?
+        // myIntArrayList.set(10, 3);
+
+        // Can I get 12-th element?
+        // myIntArrayList.get(11);
+
+        //Can I remove the 10-th element?
+        // myIntArrayList.remove(9);
+
+    }
+}

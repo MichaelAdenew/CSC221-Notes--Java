@@ -1,0 +1,202 @@
+My Code ArrayList
+
+//
+
+/** 
+ * CSC 221: Data Structures Homework 1
+ * 
+ * Creation of integer array list
+ * 
+ * Time Spent:
+ * 
+ * Authors: Michael A.
+ * Authors: Mike R.
+ * 
+ * 
+*/
+
+
+import java.util.Arrays;
+
+public class MyIntArrayList{
+    /**
+     * This class creates the variables and methods to create an
+     * dynamic array list of numbers.
+     */
+
+   /* initializing private variables....
+    * buffer[] is the underlying array for implementing MyIntArrayList...
+    * the variable currentSize is to keep track of the current size of the array list....
+    */
+    private int[] buffer;
+    private int currentSize;
+
+    /* We set the initial size of the underlying array to 5. 
+    * We could initialize to any number of elements as we wanted, 5 is just a small and easy number to start with...
+    */
+    final static int INITIAL_ARRAY_SIZE = 5;
+     
+    /* constructor...
+    * Creates an empty MyIntArrayList. 
+    * in the background, it creates an integer array of 5 elements, but with no numbers in it.
+    * currentSize is set to 0, as we are just initializing...
+    */
+    public MyIntArrayList(){
+        // Define the constructor...
+        buffer = new int[INITIAL_ARRAY_SIZE];
+        currentSize = 0;
+    }
+     
+    /* get() method...
+    * @param index is the place in the ArrayList you want to retrieve/get the element from.
+    * @returns the element of that ArrayList's index.
+    */
+    public int get(int index){
+        // You need to check if the index is out of the bounds. In this case,
+        // if the argument index is equal or greater than the size of the MyIntArrayList,
+        // you should throw an exception.
+        // you should remove 'return 0' after you write the proper logic
+        // try {
+        //     // int element = MyIntArrayList.get(index);
+        //     int element =  buffer[index];
+        //     return (element);
+            
+        // } catch (Exception ArrayIndexOutOfBoundsException) {
+        
+        //     System.out.println("Index out of bounds");
+        
+        if (index < currentSize){
+            return (buffer[index]);
+
+        } else{
+            System.out.println("Index is out of bounds");
+            throw new ArrayIndexOutOfBoundsException();
+
+        }
+
+        }
+      
+    
+
+    /*
+     * set() method...
+     * 
+     * @param index is the position in MyIntArrayList where you set a new value.
+     * 
+     * @param value is the value of the element you set at the index.
+     * 
+     * @param value replaces the element of index in the arraylist.
+     */
+    public void set(int index, int value) {
+      if(index < currentSize){
+          buffer[index] = value;
+      } else{
+          throw new ArrayIndexOutOfBoundsException();
+      }
+        //what's the difference between line 60 and line 117
+    }
+
+    /*
+     * add() method...
+     * 
+     * @param value is the element to be added in the array list. this methods adds
+     * a new element to end of the MyIntArrayList. if there is not enough space in
+     * the current underlying array, you must increase the size of it.
+     */
+    public void add(int value) {
+        if (buffer.length > currentSize){
+            buffer[currentSize] = value;
+            currentSize ++ ;
+        }
+        else{
+            increaseListSize();
+            buffer[currentSize] = value;
+            currentSize ++ ;}
+        }
+
+    // check if my array needs to be expanded...
+    // if needed increase the size by calling increaseListSize() method defined at
+    // the bottom
+    // else add the new value to the first empty index of the buffer
+    // p
+
+    // **remov**
+
+    // @param
+    // index is
+    // the position
+    // in the arr*from.**
+    // @returns
+    // the value
+    // of the
+    // removed item.*/
+
+    public int remove(int index) {
+        // try {
+        //     int previous_value = buffer[index] ;
+        // int elementsToShift = (currentSize - (index +1));
+        // int indexToReplace = index;
+        // for (int i = 0; i < elementsToShift; i ++) {
+        //     buffer[indexToReplace] = buffer[indexToReplace + 1]; 
+        //     indexToReplace ++;
+        // }
+        
+        //     return previous_value;
+            
+        // } catch (Exception arrayIndexOutOfBoundsException){
+        //     System.out.println("Cannot remove element. Index out of bounds.");
+        // }
+        
+            if(index < currentSize){
+                int elementRemoved = buffer[index];
+                for (int i = index; i < currentSize; i ++) {
+                    buffer[i] = buffer[i + 1];
+                }
+                currentSize--;
+                return elementRemoved;
+            } else{
+                throw new ArrayIndexOutOfBoundsException();
+            }
+
+
+
+            
+    
+    
+    
+    }
+        // you should remove 'return 0' after you write the proper logic
+
+
+    /*
+     * size() method...
+     * 
+     * 
+     * @returns the current size of MyIntArrayList.
+     */
+
+    public int size(){
+        return currentSize;
+    }
+
+    //Why is this code block repeated???
+
+    // public void set(int index, int value) {
+    //     int previous_value = MyIntArrayList.get(index);
+
+    //     MyIntArrayList.set(index, value);
+    //     return (previous_value);
+
+    // }
+     
+    /* increaseListSize() method...
+    * doubles the size of the underlying integer array...
+    */
+    private void increaseListSize(){
+        // buffer = Arrays.copyOf(buffer, buffer.length*2);
+        buffer = Arrays.copyOf(buffer, buffer.length*2);
+        // System.out.println("\nNew length: "+buffer.length);
+        System.out.println("New Length " + buffer.length);
+    }
+}
+
